@@ -10,7 +10,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public class Driver {
 
     //declarar objeto driver
-    private WebDriver driver;
+    private static WebDriver driver;
 
     public Driver(String navegador){
         switch (navegador){
@@ -38,7 +38,7 @@ public class Driver {
             driver.manage().window().maximize();
     }
     // metodo para retornar o driver
-    public WebDriver getDriver(){
+    public static WebDriver getDriver(){
 
         return driver;
     }
