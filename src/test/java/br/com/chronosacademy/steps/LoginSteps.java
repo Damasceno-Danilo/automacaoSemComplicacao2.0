@@ -1,6 +1,7 @@
 package br.com.chronosacademy.steps;
 
 import br.com.chronosacademy.core.Driver;
+import br.com.chronosacademy.enums.Browser;
 import br.com.chronosacademy.pages.LoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -17,7 +18,7 @@ public class LoginSteps {
 
     @Before
     public void iniciaNavegador(){
-       new Driver("chrome");
+       new Driver(Browser.CHROME);
     }
     @After
     public void fechaNavegador(){
@@ -34,9 +35,13 @@ public class LoginSteps {
         loginPage.clickDivFechaModal();
     }
     @Entao("a janela modal deve ser fechada")
-    public void aJanelaModalDeveSerFechada() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void aJanelaModalDeveSerFechada() throws Exception {
+        try {
+            loginPage.invisibilityOfBtnFechar();
+        }catch (Exception e){
+            throw new Exception("A Janela modal não foi fechada");
+        }
+
     }
 
     @Quando("realizado um clique no icone de fechar a modal")
