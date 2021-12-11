@@ -3,6 +3,7 @@ package br.com.chronosacademy.steps;
 import br.com.chronosacademy.core.Driver;
 import br.com.chronosacademy.enums.Browser;
 import br.com.chronosacademy.pages.LoginPage;
+import br.com.chronosacademy.pages.NewAccountPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
@@ -29,6 +30,8 @@ public class LoginSteps {
         Driver.getDriver().get("http://advantageonlineshopping.com/#/");
         loginPage = new LoginPage();
         loginPage.clickBtnLogin();
+        loginPage.visibilityOfBtnFechar();
+        loginPage.aguardaLoader();
     }
     @Quando("for realizado um clique fora da modal")
     public void forRealizadoUmCliqueForaDaModal() {
@@ -57,7 +60,9 @@ public class LoginSteps {
 
     @Entao("a pagina Create Account deve ser exibida")
     public void aPaginaCreateAccountDeveSerExibida() {
-        
+        NewAccountPage newAccountPage = new NewAccountPage();
+        Assert.assertEquals("CREATE ACCOUNT", newAccountPage.getTextNewAccount());
+
     }
 
     @Quando("os campos de login sejam preenchidos da seguinte forma")
