@@ -28,4 +28,7 @@ public class LoginMap {
     @FindBy(linkText = "CREATE NEW ACCOUNT")
     public WebElement linkCreateAccount;
 
+    @FindBy(css = ".loader")
+    public WebElement divloader;
+
 }

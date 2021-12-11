@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -55,5 +54,9 @@ public class Driver {
 
     public static void invisibilityOf(WebElement element){
         wait.until(ExpectedConditions.invisibilityOf(element));
+    }
+
+    public static void attributeChange(WebElement element, String attribute, String value){
+        wait.until(ExpectedConditions.attributeContains(element,attribute,value));
     }
 }
