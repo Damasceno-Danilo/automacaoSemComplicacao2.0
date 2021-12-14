@@ -24,7 +24,7 @@ public class LoginPage {
     }
     public void setImpUserName(String username){
         if (username!=null){
-            loginMap.inpUserName.sendKeys("");
+            loginMap.inpUserName.sendKeys(username);
         }
     }
     public void setInpPassword(String password){
@@ -56,6 +56,15 @@ public class LoginPage {
 
     public void aguardaLoader(){
         Driver.attributeChange(loginMap.divloader,"display","none");
+    }
+    public String getUsuarioLogado(){
+        Driver.visibilityOf(loginMap.textLogado);
+        return loginMap.textLogado.getText();
+    }
+
+    public String getErroLogin(){
+        Driver.visibilityOf(loginMap.textErroLogin);
+        return loginMap.textErroLogin.getText();
     }
 }
 
